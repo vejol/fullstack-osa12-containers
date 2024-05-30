@@ -1,0 +1,89 @@
+Script started on 2024-05-30 10:59:44+03:00 [TERM="xterm-256color" TTY="/dev/pts/18" COLUMNS="165" LINES="17"]
+[?2004h[01;32mvesa:[01;34mmongo [91m(main)[00m$ docker ps 
+[?2004lCONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                     NAMES
+70ebcabce892   mongo     "docker-entrypoint.s…"   55 minutes ago   Up 55 minutes   0.0.0.0:3456->27017/tcp   todo-backend-mongo-1
+[?2004h[01;32mvesa:[01;34mmongo [91m(main)[00m$ docker exec -it todo-backend-mongo-1 bash
+[?2004l[?2004hroot@70ebcabce892:/# mongosh
+[?2004l]0;mongosh mongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	6658321335486904a3a26a12
+Connecting to:		[1m[32mmongodb://127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.6[0m
+Using MongoDB:		7.0.11
+[1m[33mUsing Mongosh[0m:		2.2.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+
+To help improve our products, anonymous usage data is collected and sent to MongoDB periodically (https://www.mongodb.com/legal/privacy-policy).
+You can opt-out by running the disableTelemetry() command.
+
+[1G[0J [1G[1G[0Jtest> [7Gshow dbs
+Uncaught [1m[31mMongoServerError[0m[1m[31m[Unauthorized][0m: Command listDatabases requires authentication
+[1G[0Jtest> [7G
+(To exit, press Ctrl+C again or Ctrl+D or type .exit)
+[1G[0Jtest> [7G
+[?2004hroot@70ebcabce892:/# mongosh -u root -p example
+[?2004l]0;mongosh mongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000Current Mongosh Log ID:	665832454cb5192613a26a12
+Connecting to:		[1m[32mmongodb://<credentials>@127.0.0.1:27017/?directConnection=true&serverSelectionTimeoutMS=2000&appName=mongosh+2.2.6[0m
+Using MongoDB:		7.0.11
+[1m[33mUsing Mongosh[0m:		2.2.6
+
+For mongosh info see: https://docs.mongodb.com/mongodb-shell/
+
+[1G[0J [1G[1m[33m------[0m
+   [1m[33mThe server generated these startup warnings when booting[0m
+   2024-05-30T07:04:43.432+00:00: Using the XFS filesystem is strongly recommended with the WiredTiger storage engine. See http://dochub.mongodb.org/core/prodnotes-filesystem
+   2024-05-30T07:04:44.145+00:00: /sys/kernel/mm/transparent_hugepage/enabled is 'always'. We suggest setting it to 'never' in this binary version
+   2024-05-30T07:04:44.145+00:00: vm.max_map_count is too low
+[1m[33m------[0m
+
+[1G[0Jtest> [7Gsoh[1G[0Jtest> so[9G[1G[0Jtest> s[8Ghow dbs
+[1madmin[0m         100.00 KiB
+[1mconfig[0m        108.00 KiB
+[1mlocal[0m          72.00 KiB
+[1mthe_database[0m   56.00 KiB
+[1G[0Jtest> [7Guse the_database
+switched to db the_database
+[1G[0Jthe_database> [15Gshow collections
+[1mtodos[0m
+[1G[0Jthe_database> [15Gdb.todos.find({]}[1G[0Jthe_database> db.todos.find({][31G[1G[0Jthe_database> db.todos.find({[30G][1G[0Jthe_database> db.todos.find({[30G}][1G[0Jthe_database> db.todos.find({}[31G)
+[
+  {
+    _id: ObjectId([32m'6658250a1aa0824d32a26a13'[39m),
+    text: [32m'Write some good code'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'6658250a1aa0824d32a26a14'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gdbtodos.inse[1G[0Jthe_database> dbtodos.ins[26G[1G[0Jthe_database> dbtodos.in[25G[1G[0Jthe_database> dbtodos.i[24G[1G[0Jthe_database> dbtodos.[23G[1G[0Jthe_database> dbtodos[22G[1G[0Jthe_database> dbtodo[21G[1G[0Jthe_database> dbtod[20G[1G[0Jthe_database> dbto[19G[1G[0Jthe_database> dbt[18G[1G[0Jthe_database> db[17G.todos.insertOne({[32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, [32m"[39m[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolbelt"[39m, [82G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolbelt"[39m,[81G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolbelt"[39m[80G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolbelt[39m[79G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolbel[39m[78G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolbe[39m[77G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my toolb[39m[76G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my tool[39m[75G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my too[39m[74G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my to[39m[73G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my t[39m[72G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my [39m[71G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in my[39m[70G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in m[39m[69G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in [39m[68G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools in[39m[67G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools i[39m[66G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools [39m[65G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tools[39m[64G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of tool[39m[63G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of too[39m[62G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of to[39m[61G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of t[39m[60G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of [39m[59G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number of[39m[58G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number o[39m[57G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number [39m[56G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the number[39m[55G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the numbe[39m[54G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the numb[39m[53G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the num[39m[52G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the nu[39m[51G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the n[39m[50G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the [39m[49G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase the[39m[48G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase th[39m[47G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase t[39m[46G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase [39m[45G[1G[0Jthe_database> db.todos.insertOne({[32m"Increase[39m[44G[1G[0Jthe_database> db.todos.insertOne({[32m"Increas[39m[43G[1G[0Jthe_database> db.todos.insertOne({[32m"Increa[39m[42G[1G[0Jthe_database> db.todos.insertOne({[32m"Incre[39m[41G[1G[0Jthe_database> db.todos.insertOne({[32m"Incr[39m[40G[1G[0Jthe_database> db.todos.insertOne({[32m"Inc[39m[39G[1G[0Jthe_database> db.todos.insertOne({[32m"In[39m[38G[1G[0Jthe_database> db.todos.insertOne({[32m"I[39m[37G[1G[0Jthe_database> db.todos.insertOne({[32m"[39m[36G[32mt[39m[32me[39m[32mx[39m[32mt[39m[32m"[39m: [32m"[39m[32mI[39m[32mn[39m[32mc[39m[32mr[39m[32me[39m[32ma[39m[32ms[39m[32me[39m [32mt[39m[32mh[39m[32me[39m [32mn[39m[32mu[39m[32mm[39m[32mb[39m[32me[39m[32mr[39m [32mo[39m[32mf[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32ms[39m [32mi[39m[32mn[39m [32mm[39m[32my[39m [32mt[39m[32mo[39m[32mo[39m[32ml[39m[32mb[39m[32me[39m[32ml[39m[32mt[39m[32m"[39m, [32m"[39m[32md[39m[32mo[39m[32mn[39m[32me[39m[32m"[39m: fals[33mfalse[39m})
+{
+  acknowledged: [33mtrue[39m,
+  insertedId: ObjectId([32m'665832b74cb5192613a26a13'[39m)
+}
+[1G[0Jthe_database> [15G[1G[0Jthe_database> db.todos.insertOne({[32m"text"[39m: [32m"Increase the number of tools in my toolbelt"[39m, [32m"done"[39m: [33mfalse[39m})[105G[1G[0Jthe_database> db.todos.find({})[32G
+[
+  {
+    _id: ObjectId([32m'6658250a1aa0824d32a26a13'[39m),
+    text: [32m'Write some good code'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'6658250a1aa0824d32a26a14'[39m),
+    text: [32m'Learn about containers'[39m,
+    done: [33mfalse[39m
+  },
+  {
+    _id: ObjectId([32m'665832b74cb5192613a26a13'[39m),
+    text: [32m'Increase the number of tools in my toolbelt'[39m,
+    done: [33mfalse[39m
+  }
+]
+[1G[0Jthe_database> [15Gexit
+[?2004hroot@70ebcabce892:/# eix  xit
+[?2004lexit
+[?2004h[01;32mvesa:[01;34mmongo [91m(main)[00m$ exit
+[?2004lexit
+
+Script done on 2024-05-30 11:03:27+03:00 [COMMAND_EXIT_CODE="0"]
