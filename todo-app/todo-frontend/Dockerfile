@@ -1,8 +1,6 @@
 FROM node:20 AS test
 WORKDIR /usr/src/app
 
-EXPOSE 8000
-
 COPY . .
 
 RUN npm ci
@@ -12,7 +10,7 @@ RUN ["npm", "test"]
 
 FROM test AS build
 
-ENV VITE_BACKEND_URL=http://localhost:3000
+ENV VITE_BACKEND_URL=http://localhost:8080/api/
 
 RUN npm run build
 
