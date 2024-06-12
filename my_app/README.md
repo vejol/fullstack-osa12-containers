@@ -16,7 +16,7 @@ This app is built as an exercise in Full Stack Open course. After login, user ca
 
 ## How to run app in production mode
 
-Run `docker compose up` in project's root folder.
+Run `docker compose up` in project's root folder. The app is then available on http://localhost:8080
 
 ## How to add app users manually
 
